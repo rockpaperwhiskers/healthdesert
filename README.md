@@ -131,6 +131,64 @@ A tract is classified along two dimensions:
 
 ---
 
+## Results: Clark County, Nevada (FIPS 32003)
+
+> **Config used:** `STATE_FIPS = "32"` (Nevada), `COUNTY_FIPS = "003"` (Clark County), `ACS_YEAR = 2022`
+
+This run analyses all 535 census tracts in Clark County — home to Las Vegas and one of the fastest-growing metro areas in the US — using ACS 2022 5-year estimates and national HRSA/HIFLD facility data.
+
+### Summary Statistics
+
+| Access Category | Tracts | Population | Mean Vulnerability Score | Share of Tracts |
+|-----------------|-------:|-----------:|-------------------------:|----------------:|
+| Adequate        | 530    | 2,254,253  | 0.204                    | 99.1%           |
+| At Risk         | 2      | 7,792      | 0.291                    | 0.4%            |
+| Desert          | 1      | 949        | 0.357                    | 0.2%            |
+| Underserved     | 2      | 2,932      | 0.236                    | 0.4%            |
+
+Of the 535 tracts analysed, **530 (99.1%)** fall into the Adequate category. The remaining 5 tracts — covering an estimated **11,673 people** — face some combination of high vulnerability and inadequate geographic access to care.
+
+### The Desert Tract: Census Tract 57.03
+
+The single confirmed healthcare desert is **Census Tract 57.03** (GEOID `32003005703`), with a composite vulnerability score of **0.357** — comfortably in the top quartile. Its component scores:
+
+| Variable | Value |
+|----------|------:|
+| % Elderly (65+) | 38.0% |
+| % Uninsured | 11.9% |
+| % Below poverty line | 24.7% |
+| % Households with no vehicle | 21.7% |
+| **Composite vulnerability score** | **0.357** |
+| **Estimated population** | **949** |
+
+This tract's centroid lies beyond the 30-minute drive-time isochrone from any HRSA health center or HIFLD hospital — qualifying it as a healthcare desert under the classification logic above.
+
+### Key Findings
+
+- **Facility clustering:** Healthcare facilities are almost entirely concentrated within the Las Vegas–Henderson urban core. Outlying areas — particularly the southeastern portion of Clark County and communities like Moapa Valley — are facility-sparse and fall outside the 30-minute isochrone.
+
+- **Isochrone shape:** Road-network isochrones extend access along major highway corridors but leave large off-highway areas unreachable within 30 minutes. The gap between urban coverage and rural isolation is stark.
+
+- **Correlated burdens:** The vulnerability variables are not independent. Uninsured rate and poverty rate show a strong positive correlation (r = 0.65); poverty and no-vehicle households are tightly coupled (r = 0.69). Elderly share correlates *negatively* with uninsured rate (r = −0.32), likely reflecting Medicare coverage. Desert tracts are simultaneously poor, car-free, and uninsured.
+
+- **Vulnerability distributions:** Median elderly rate across county tracts is 13.4%; median uninsured rate is 10.4%; median poverty rate is 11.0%; median no-vehicle household rate is 4.6%. All distributions are right-skewed, meaning a small tail of tracts carries disproportionately high burdens.
+
+### Maps and Charts
+
+All outputs are in `outputs/`:
+
+| File | What it shows |
+|------|---------------|
+| `maps/vulnerability_choropleth.png` | County-wide vulnerability score choropleth with facility markers and 30-min isochrone boundary |
+| `maps/isochrones_clark_county.png` | Drive-time isochrones (15/30/60 min) over the full county extent |
+| `charts/01_vulnerability_distributions.png` | Histograms of all four vulnerability variables with medians |
+| `charts/02_facility_map.png` | Spatial distribution of HRSA health centers and HIFLD hospitals |
+| `charts/03_isochrone_coverage.png` | Isochrone polygons overlaid on census tract boundaries |
+| `charts/04_access_category_map.png` | Final classification map (Adequate / At Risk / Desert / Underserved) |
+| `charts/05_score_distributions_and_correlations.png` | Vulnerability score histogram by category + correlation heatmap |
+
+---
+
 ## Portfolio Notes
 
 ### Technical skills demonstrated
