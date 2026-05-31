@@ -189,20 +189,6 @@ All outputs are in `outputs/`:
 
 ---
 
-## Portfolio Notes
-
-### Technical skills demonstrated
-
-- **Census API** — authenticated requests via the `census` Python package; handling ACS variable hierarchies (age/sex × insurance status) and the `-666666666` missing-data sentinel
-- **GeoPandas & Shapely** — spatial joins (centroid-in-polygon), CRS management (EPSG:4326 ↔ EPSG:3857), `unary_union` dissolves
-- **OpenRouteService** — batch isochrone generation with rate-limit back-off; graceful degradation to Euclidean buffers
-- **Vulnerability indexing** — min-max normalisation, weighted composite scores, quartile classification (`pd.qcut`)
-- **Static cartography** — matplotlib choropleth, hatch overlays, contextily basemaps, north arrow, scale bar
-- **Interactive cartography** — Folium `FeatureGroup` layers, `GeoJsonTooltip`, `LinearColormap`, `LayerControl`
-- **Pipeline engineering** — argparse CLI, `pathlib`-based file I/O, disk caching at every step, per-step error isolation, structured logging
-
----
-
 ## Known Limitations & Future Work
 
 - **Facility coverage**: HRSA and HIFLD are national datasets; no filtering to the study area is applied before isochrone generation, so ORS API quota usage scales with the number of nationwide facilities.
