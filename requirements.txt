@@ -1,0 +1,26 @@
+# Healthcare Desert Analysis — Python dependencies
+# Install with: pip install -r requirements.txt
+
+# Census and geospatial core
+census
+geopandas
+pandas
+numpy
+shapely
+pyproj
+fiona
+
+# Visualisation
+matplotlib
+contextily
+folium
+
+# Isochrone API client
+openrouteservice
+
+# HTTP and utilities
+requests
+tqdm
+python-dotenv
+ipykernel
+pgeocode  # ZIP-code centroid geocoding fallback for HRSA data
